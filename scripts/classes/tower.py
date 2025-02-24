@@ -230,7 +230,7 @@ class Tower:
                 return
 
         if path == 1:
-            price = data.TOWER_FIRSTPATH_PRICE[self.id][self.upgrade[1]]
+            price = data.TOWER_SECONDPATH_PRICE[self.id][self.upgrade[1]]
             if gold >= price:
                 scene.gold -= price
                 self.upgrade[1] += 1

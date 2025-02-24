@@ -1,6 +1,6 @@
 import pygame
 import data
-
+import variables
 
 class Ability:
     def __init__(self, owner):
@@ -14,6 +14,8 @@ class Ability:
 
     def tick(self):
         step = 16.6666
+        if variables.speedup:
+            step *= 2.0
         self.timer += step
 
     def activate_ability(self):

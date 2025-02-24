@@ -154,8 +154,6 @@ def left_click(x, y):
 def right_click(x, y):
     print(f"[{x}, {y}]")
 
-    data.SOUND_HITMARK.play()
-
     if data.CLIENT.scene.id == 3:
         data.CLIENT.scene.sidebar.select = None
 
@@ -187,7 +185,6 @@ def handle_events(e):
             left_click(pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1])
         if e.button == pygame.BUTTON_RIGHT:
             right_click(pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1])
-            data.CLIENT.scene.round_spawner.round += 1
 
 
         
@@ -220,7 +217,7 @@ def handle_events(e):
         if keys[pygame.K_b]:
             data.CLIENT.scene.gold += 999999
         if keys[pygame.K_s]:
-            data.CLIENT.scene.round_spawner.round += 3
+            data.CLIENT.scene.round_spawner.round += 1
         if keys[pygame.K_f]:
             print(data.CLOCK.get_fps())
         if keys[pygame.K_ESCAPE]:

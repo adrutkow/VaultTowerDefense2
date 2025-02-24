@@ -4,7 +4,8 @@ import math
 import funcs
 import random
 
-
+# TODO: anonymous crashes the game, str effect
+# TODO: floating text
 
 class Bloon:
     def __init__(self, id, waypoint=None, x=None, y=None, lifetime=0, distance_travelled=0, camo=False, lead=False):
