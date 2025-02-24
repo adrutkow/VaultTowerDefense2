@@ -541,6 +541,7 @@ SOUND_BLOON_POP1 = pygame.mixer.Sound("assets/sounds/bloonpop1.mp3")
 SOUND_BLOON_POP2 = pygame.mixer.Sound("assets/sounds/bloonpop2.mp3")
 SOUND_BLOON_POP3 = pygame.mixer.Sound("assets/sounds/bloonpop3.mp3")
 
+
 sounds.append(SOUND_HITMARK)
 sounds.append(SOUND_METAL_HIT1)
 sounds.append(SOUND_METAL_HIT2)
@@ -550,6 +551,11 @@ sounds.append(SOUND_BLOON_POP3)
 
 for i in sounds:
     i.set_volume(0.1)
+
+SOUND_BLOON_POP1.set_volume(0.015)
+SOUND_BLOON_POP2.set_volume(0.015)
+SOUND_BLOON_POP3.set_volume(0.015)
+
 
 BLOON_IMAGES = []
 for i in range(0, 16):

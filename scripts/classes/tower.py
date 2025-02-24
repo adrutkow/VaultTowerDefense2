@@ -226,6 +226,8 @@ class Tower:
                 scene.gold -= price
                 self.upgrade[0] += 1
                 self.money_spent += price
+            else:
+                return
 
         if path == 1:
             price = data.TOWER_FIRSTPATH_PRICE[self.id][self.upgrade[1]]
@@ -233,6 +235,8 @@ class Tower:
                 scene.gold -= price
                 self.upgrade[1] += 1
                 self.money_spent += price
+            else:
+                return
 
         self.update_stats()
         self.on_bought_upgrade(path)
