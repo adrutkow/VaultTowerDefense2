@@ -221,6 +221,7 @@ class Spood(Tower):
         if self.upgrade[0] >= 3:
             damage = 20
             ceramic_bonus = 15
+            lead = True
         if self.upgrade[0] >= 4:
             damage = 30
             ceramic_bonus = 15
@@ -351,6 +352,7 @@ class Slav(Tower):
         self.update_stats()
         gold_generated = self.current_damage
         data.CLIENT.scene.gold += gold_generated
+        data.CLIENT.scene.add_floating_text("+"+str(gold_generated)+"$", self.x - self.size/2, self.y, speed=0.5, size=25, lifetime=3, color=(255, 255, 0))
         self.add_pops(gold_generated)
 
 

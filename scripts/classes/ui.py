@@ -269,3 +269,26 @@ class TowerMenu:
 
             # if self.tower_select.upgrade[0] > 2:
             #     funcs.draw_image(data.LIMIT, 25, 346)
+
+class FloatingText:
+    def __init__(self, text, x, y, size=30, speed=1, lifetime=3, color=(255, 255, 255), shadow=True):
+        self.text = text
+        self.x = x
+        self.y = y
+        self.size = size
+        self.speed = speed
+        self.color = color
+        self.lifetime = lifetime * 60
+        self.timer = 0
+        self.shadow = shadow
+
+    def tick(self):
+        self.draw()
+
+    def draw(self):
+        funcs.draw_text(self.text, self.x, self.y, size=self.size, shadow=self.shadow, color=self.color)
+        self.timer += 1
+        self.y -= self.speed
+        print(self.timer)
+        if self.timer > self.lifetime:
+            data.CLIENT.scene.particles.remove(self)

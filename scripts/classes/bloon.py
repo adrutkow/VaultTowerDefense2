@@ -6,6 +6,7 @@ import random
 
 # TODO: anonymous crashes the game, str effect
 # TODO: floating text
+# DONE: an hp bar on moabs would go hard 
 
 class Bloon:
     def __init__(self, id, waypoint=None, x=None, y=None, lifetime=0, distance_travelled=0, camo=False, lead=False):
@@ -146,6 +147,12 @@ class Bloon:
         # else:
         #     funcs.draw_image(data.BLOON_IMAGES[self.id], self.x, self.y, center=True)
         funcs.draw_image(self.image, self.x, self.y, center=True)
+
+
+        if self.moab_class:
+            pygame.draw.rect(data.WINDOW, (255, 0, 0), (self.x - self.size/2, self.y - self.size, 60, 10))
+            pygame.draw.rect(data.WINDOW, (0, 255, 0), (self.x - self.size/2, self.y - self.size, (self.health / data.BLOON_HP_DATA[self.id]) * 60, 10))
+
         if "nebunu" in self.effects:
             funcs.draw_image(data.NEBUNU, self.x, self.y)
         pygame.draw.circle(data.WINDOW, (0, 0, 0), (self.x, self.y), self.size, 1)

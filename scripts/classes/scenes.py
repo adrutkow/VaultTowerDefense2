@@ -2,7 +2,7 @@ import pygame
 import data
 import funcs
 import variables
-from classes.ui import Button, BuyIcon, Sidebar, TowerMenu
+from classes.ui import Button, BuyIcon, Sidebar, TowerMenu, FloatingText
 from classes.bloon import Bloon
 
 class Scene:
@@ -79,6 +79,7 @@ class Game(Scene):
         self.grouped_abilities = []
         self.waypoints = []
         self.projectiles = []
+        self.particles = []
         self.timer = 0
         self.lives = 100
         self.gold = 650
@@ -120,6 +121,9 @@ class Game(Scene):
         for i in self.projectiles:
             i.tick()
 
+        for i in self.particles:
+            i.tick()
+
         if not self.round_paid:
             if len(self.bloons) == 0 and len(self.round_spawner.current_list) == 0:
                 self.gold += 100 + self.round_spawner.round + 1
@@ -149,6 +153,8 @@ class Game(Scene):
 
         pygame.display.update(0, 0, 1169, 768)
 
+    def add_floating_text(self, text, x, y, size=30, speed=1, lifetime=3, color=(255,255,255)):
+        self.particles.append(FloatingText(text, x, y, size=size, speed=speed, lifetime=lifetime, color=color))
 
     def activate_ability(self, slot):
         print("trying to active ability number "+str(slot))

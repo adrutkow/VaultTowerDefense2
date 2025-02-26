@@ -405,7 +405,7 @@ TOWER_SECONDPATH_NAMES = [
 TOWER_FIRSTPATH_DESCRIPTIONS = [
     ["Sharp shots", "Razor sharp shots", "Spike-o-pult", "Juggernaut", "Ultra Juggernaut"],
     ["Barbed darts", "heat tiped darts", "yo mamam", "deexz", "muts"],
-    ["Bullets now do 4 damage", "Bullets now do 7 damage", "20 damage per shot, with a bonus against ceramics", "30 damage, ceramic bonus, and bullets now stun MOAB class bloons", "280 damage per shot, shots cripple MOAB class bloons, stunning them and making them take +5 damage"],
+    ["Bullets now do 4 damage", "Bullets now do 7 damage", "20 damage per shot, with a bonus against ceramics. Can pop lead.", "30 damage, ceramic bonus, and bullets now stun MOAB class bloons", "280 damage per shot, shots cripple MOAB class bloons, stunning them and making them take +5 damage"],
     ["test", "test", "test", "test", "test"],
     ["test", "test", "test", "test", "test"],
     ["test", "test", "test", "test", "test"],

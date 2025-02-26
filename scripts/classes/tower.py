@@ -46,7 +46,14 @@ class Tower:
 
     def draw(self):
         image = self.image_reference
-        image = pygame.transform.rotate(self.image_reference, self.timer/10)
+        #image = pygame.transform.rotate(self.image_reference, self.timer/10)
+        percent = self.timer / (self.current_attack_speed * 1000)
+        if percent > 1:
+            percent = 1
+        angle = percent * -15
+
+        image = pygame.transform.rotate(self.image_reference, angle)
+
         image_rect = image.get_rect(center = (self.x, self.y))
         funcs.draw_image(image, self.x, self.y, rect=image_rect)
         #data.WINDOW.blit(image, image_rect)

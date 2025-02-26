@@ -5,6 +5,7 @@ from classes.tower_classes import class_list
 import variables
 import pickle
 import math
+from classes.ui import FloatingText
 
 
 def draw_image(image, x, y, final_x=None, final_y=None, rect=None, center=False):
@@ -216,6 +217,7 @@ def handle_events(e):
             data.CLIENT.scene.spawn_bloon(15)
         if keys[pygame.K_b]:
             data.CLIENT.scene.gold += 999999
+            data.CLIENT.scene.particles.append(FloatingText("test", 600, 600, color=(255, 255, 0)))
         if keys[pygame.K_s]:
             data.CLIENT.scene.round_spawner.round += 1
         if keys[pygame.K_f]:
