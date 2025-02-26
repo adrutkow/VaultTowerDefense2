@@ -5,7 +5,7 @@ import funcs
 import random
 
 # TODO: anonymous crashes the game, str effect
-# TODO: floating text
+# DONE: floating text
 # DONE: an hp bar on moabs would go hard 
 
 class Bloon:
@@ -14,8 +14,6 @@ class Bloon:
         self.angle = 0
         self.last_waypoint = waypoint
         self.current_waypoint = waypoint.ahead
-        #self.w = 49
-        #self.h = 63
         self.size = data.BLOON_SIZE_DATA[self.id]
         self.speed = data.BLOON_SPEED_DATA[self.id] * data.BLOON_SPEED_MULTIPLIER
         self.lifetime = lifetime
@@ -29,9 +27,6 @@ class Bloon:
             self.moab_class = True
         if self.id == 7 or self.id == 14:
             self.lead = True
-        #BLOON_IMAGES = []
-        #for i in range(0, 16):
-        #    BLOON_IMAGES.append((pygame.image.load("assets/bloons/bloon_" + str(i) + ".png")).convert_alpha())
         if x is None:
             self.spawn()
         else:

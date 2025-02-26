@@ -2,7 +2,7 @@ import pygame
 import data
 import funcs
 import variables
-from classes.ui import Button, BuyIcon, Sidebar, TowerMenu, FloatingText
+from classes.ui import Button, BuyIcon, Sidebar, TowerMenu, FloatingText, FloatingImage
 from classes.bloon import Bloon
 
 class Scene:
@@ -155,6 +155,9 @@ class Game(Scene):
 
     def add_floating_text(self, text, x, y, size=30, speed=1, lifetime=3, color=(255,255,255)):
         self.particles.append(FloatingText(text, x, y, size=size, speed=speed, lifetime=lifetime, color=color))
+
+    def add_floating_image(self, image, x, y, size=1, lifetime=3):
+        self.particles.append(FloatingImage(image, x, y, lifetime=lifetime))
 
     def activate_ability(self, slot):
         print("trying to active ability number "+str(slot))

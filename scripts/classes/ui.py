@@ -292,3 +292,26 @@ class FloatingText:
         print(self.timer)
         if self.timer > self.lifetime:
             data.CLIENT.scene.particles.remove(self)
+
+class FloatingImage:
+    def __init__(self, image, x, y, size=1, speed=1, dir_x=0, dir_y=0, lifetime=3):
+        self.image = image
+        self.x = x
+        self.y = y
+        self.size = size
+        self.speed = speed
+        self.lifetime = lifetime * 60
+        self.timer = 0
+        self.dir_x = 0
+        self.dir_y = 0
+
+    def tick(self):
+        self.draw()
+
+    def draw(self):
+        print(str(self.timer) + " " + str(self.lifetime))
+        funcs.draw_image(self.image, self.x, self.y, center=True)
+        self.timer += 1
+        print(self.timer)
+        if self.timer > self.lifetime:
+            data.CLIENT.scene.particles.remove(self)

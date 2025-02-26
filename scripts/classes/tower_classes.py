@@ -62,14 +62,19 @@ class DubstepCat(Tower):
 
     def shoot(self, target):
         angle = self.get_angle_towards_target(target)
-        self.summon_projectile(_angle = angle, _bomb = True)
+        self.summon_projectile(_angle = angle, _bomb = True, _size=20)
 
     def on_target_hit(self, projectile, target):
         super().on_target_hit(projectile, target)
+        if self.upgrade[0] == 3:
+            target.stun(0.5)
+            data.CLIENT.scene.add_floating_text("Stunned!", projectile.x, projectile.y)
+
         if projectile.bomb:
-            self.summon_projectile(_x = projectile.x, _y = projectile.y, _projectile_id = 2, _speed = 0,
-                                _damage = projectile.damage, _pierce = projectile.pierce, _lifetime = 15, _size = 30)
+            self.summon_projectile(_x = projectile.x, _y = projectile.y, _projectile_id = 0, _speed = 0,
+                               _damage = projectile.damage, _pierce = projectile.pierce, _lifetime = 5, _size = 75)
             projectile.pierce = 0
+            data.CLIENT.scene.add_floating_image(data.PROJECTILE_IMAGES[2], target.x, target.y, lifetime=0.3)
 
     def get_upgrade_stats(self, tower_data):
         attack_speed, range, damage, pierce, lifetime, speed, projectile_id, camo, lead, targeting, moab_bonus, ceramic_bonus, projectile_size = tower_data
