@@ -8,6 +8,9 @@ import random
 # DONE: floating text
 # DONE: an hp bar on moabs would go hard 
 
+# TODO: Stunned! text very laggy, fix Dubstep
+# TODO: Properlyh finish a tower, prob duibstep dfirst
+
 class Bloon:
     def __init__(self, id, waypoint=None, x=None, y=None, lifetime=0, distance_travelled=0, camo=False, lead=False):
         self.id = id
